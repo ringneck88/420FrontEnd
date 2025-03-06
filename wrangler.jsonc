@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "420Fontend",
+	"name": "mint420fontend",
 	"main": "src/index.js",
 	"compatibility_date": "2025-03-03",
 	"observability": {
