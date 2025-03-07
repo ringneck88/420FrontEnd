@@ -61,6 +61,8 @@
         #message {
             margin-top: 15px;
             text-align: center;
+            font-size: 24px; /* Large font size for thank you message */
+            color: green; /* Green color for thank you message */
         }
 
         .hidden {
@@ -136,7 +138,7 @@
     <label for="ticketNumber">Ticket Number:</label>
     <input type="text" id="ticketNumber" name="ticketNumber" required>
 
-    <div id="additionalFields" class="">
+    <div id="additionalFields" class="hidden">
         <label for="firstName">First Name:</label>
         <input type="text" id="firstName" name="firstName">
 
@@ -146,10 +148,20 @@
         <label for="phone">Phone Number:</label>
         <input type="tel" id="phone" name="phone">
 
-        <label for="email">Email:</label>
+        <label for="location">Location:</label>
         <input type="text" id="location" name="location">
 
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id">
 
+        <label for="dutchieCustId">Dutchie Customer ID:</label>
+        <input type="text" id="dutchieCustId" name="dutchieCustId">
+
+        <label for="createdAt">Created At:</label>
+        <input type="text" id="createdAt" name="createdAt">
+
+        <label for="addPrizeCode">Add Prize Code:</label>
+        <input type="text" id="addPrizeCode" name="addPrizeCode">
     </div>
 
     <button type="submit">I agree to the Shootout and enter!</button>
@@ -159,10 +171,10 @@
 <a href="shootoutRules.html" style="display: block; text-align: center; margin-top: 10px;">Read the Shootout Rules</a>
 
 <div id="message"></div>
-<!-- <div id="fadeImages">
-	<img src="assets/img/5000prize-big.png" class="fade-image" alt="Fade Image 1" style="width: 50%; position: absolute;">
-	<img src="assets/img/holeinone-big.png" class="fade-image" alt="Fade Image 2" style="width: 50%;">
-</div> -->
+<div id="fadeImages">
+    <img src="assets/img/5000prize-big.png" class="fade-image" alt="Fade Image 1" style="width: 50%; position: absolute;">
+    <img src="assets/img/holeinone-big.png" class="fade-image" alt="Fade Image 2" style="width: 50%;">
+</div>
 <style>
     #fadeImages {
         position: fixed;
@@ -193,7 +205,7 @@
     }
 
     setInterval(showNextImage, 3000); // Change image every 3 seconds
-    images[currentIndex].classList.add('active'); // Show the first image initially
+   // images[currentIndex].classList.add('active'); // Show the first image initially
 </script>
 <script>
     const form = document.getElementById('codeForm');
@@ -242,6 +254,7 @@
         // Show thank you message
         messageDiv.textContent = "Thank you for your submission!";
         messageDiv.style.color = "green";
+        messageDiv.style.fontSize = "32px"; // Large font size for thank you message
 
         // Hide the form
         form.style.display = "none";
