@@ -114,6 +114,11 @@
                 background-position: center;
             }
         }
+
+        /* Hide fade images when full form is shown */
+        .hide-fade-images #fadeImages {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -218,7 +223,7 @@
                 //}
                 //const result = await response.json();
                 //const data = JSON.parse(result.contents);
-				const data = ""; //JSON.parse(result.contents);
+                const data = ""; //JSON.parse(result.contents);
 
                //if (data.used) {
                   //  messageDiv.textContent = "Sorry, this ticket number has already been used. Please try again.";
@@ -227,6 +232,7 @@
                // } else {
                     additionalFields.classList.remove('hidden');
                     messageDiv.textContent = "";
+                    document.body.classList.add('hide-fade-images'); // Hide fade images
                // }
             //} catch (error) {
                // console.error("Error:", error);
@@ -236,6 +242,7 @@
         } else {
             additionalFields.classList.add('hidden');
             messageDiv.textContent = "";
+            document.body.classList.remove('hide-fade-images'); // Show fade images
         }
     });
 </script>
