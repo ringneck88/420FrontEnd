@@ -219,14 +219,14 @@
                 //const result = await response.json();
                 const data = JSON.parse(result.contents);
 
-                if (data.used) {
-                    messageDiv.textContent = "Sorry, this ticket number has already been used. Please try again.";
-                    messageDiv.style.color = "red";
-                    additionalFields.classList.add('hidden');
-                } else {
+               //if (data.used) {
+                  //  messageDiv.textContent = "Sorry, this ticket number has already been used. Please try again.";
+                  //  messageDiv.style.color = "red";
+                  //  additionalFields.classList.add('hidden');
+               // } else {
                     additionalFields.classList.remove('hidden');
                     messageDiv.textContent = "";
-                }
+               // }
             //} catch (error) {
                // console.error("Error:", error);
                // messageDiv.textContent = "An error occurred. Please try again later.";
