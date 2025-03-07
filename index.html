@@ -138,14 +138,22 @@
 <form id="codeForm" style="background-color: rgba(255, 255, 255, 0.6);">
 	<label for="ticketPart1"><img src="assets/img/enter-code.png" alt="Enter Code" style="width: 600px; max-width: 90%;"></label>
 	<div style="display: flex; gap: 5px; align-items: center; justify-content: center;">
-		<input type="text" id="ticketPart1" name="ticketPart1" maxlength="2" required style="width: 40px;">
+		<input type="text" id="ticketPart1" name="ticketPart1" maxlength="2" required style="width: 40px;" oninput="moveToNext(this, 'ticketPart2')">
 		<span style="display: flex; align-items: center;">-</span>
-		<input type="text" id="ticketPart2" name="ticketPart2" maxlength="2" required style="width: 40px;">
+		<input type="text" id="ticketPart2" name="ticketPart2" maxlength="2" required style="width: 40px;" oninput="moveToNext(this, 'ticketPart3')">
 		<span style="display: flex; align-items: center;">-</span>
-		<input type="text" id="ticketPart3" name="ticketPart3" maxlength="2" required style="width: 40px;">
+		<input type="text" id="ticketPart3" name="ticketPart3" maxlength="2" required style="width: 40px;" oninput="moveToNext(this, 'ticketPart4')">
 		<span style="display: flex; align-items: center;">-</span>
 		<input type="text" id="ticketPart4" name="ticketPart4" maxlength="2" required style="width: 40px;">
 	</div>
+
+	<script>
+		function moveToNext(current, nextFieldId) {
+			if (current.value.length === current.maxLength) {
+				document.getElementById(nextFieldId).focus();
+			}
+		}
+	</script>
 
 	<div id="additionalFields" class="">
 		<label for="firstName">First Name:</label>
@@ -162,7 +170,7 @@
 	</div>
 <div style="margin-top: 10px; display: flex; align-items: center;"></div>
 	<input type="checkbox" id="agreeRules" required>
-	<label for="agreeRules" style="font-size: 20px; color: red; margin-left: 5px;">
+	<label for="agreeRules" style="font-size: 15px; color: red; margin-left: 5px;">
 		<a href="shootoutRules.html" target="_blank" style="color: red;">I agree to the Shootout Rules</a>
 	</label>
 </div>
