@@ -118,12 +118,12 @@
 </head>
 <body>
 <div>
-	<picture>
-		<img src="assets/img/mint-logo-big.png" alt="Splash Image" style="width: 75%; display: block; margin: 0 auto;">
-	</picture>
-	<picture>
-		<img src="assets/img/MDGsplash-big.png" alt="Splash Image" style="width: 70%; display: block; margin: 0 auto;">
-	</picture>
+    <picture>
+        <img src="assets/img/mint-logo-big.png" alt="Splash Image" style="width: 75%; display: block; margin: 0 auto;">
+    </picture>
+    <picture>
+        <img src="assets/img/MDGsplash-big.png" alt="Splash Image" style="width: 70%; display: block; margin: 0 auto;">
+    </picture>
 </div>
 <h1>Ticket Verification</h1>
 
@@ -165,40 +165,40 @@
 
 <div id="message"></div>
 <div id="fadeImages">
-	<img src="assets/img/5000prize-big.png" class="fade-image" alt="Fade Image 1" style="width: 50%; position: absolute;">
-	<img src="assets/img/holeinone-big.png" class="fade-image" alt="Fade Image 2" style="width: 50%;">
+    <img src="assets/img/5000prize-big.png" class="fade-image" alt="Fade Image 1" style="width: 50%; position: absolute;">
+    <img src="assets/img/holeinone-big.png" class="fade-image" alt="Fade Image 2" style="width: 50%;">
 </div>
 <style>
-	#fadeImages {
-		position: fixed;
-		bottom: 125px;
-		left: 20px;
-		margin: 0;
-		 position: absolute;
-	}
+    #fadeImages {
+        position: fixed;
+        bottom: 175px;
+        left: 20px;
+        margin: 0;
+         position: absolute;
+    }
 
-	.fade-image {
-		opacity: 0;
-		transition: opacity 2s ease-in-out;
-	}
+    .fade-image {
+        opacity: 0;
+        transition: opacity 2s ease-in-out;
+    }
 
-	.fade-image.active {
-		opacity: 1;
-	}
+    .fade-image.active {
+        opacity: 1;
+    }
 </style>
 
 <script>
-	const images = document.querySelectorAll('.fade-image');
-	let currentIndex = 0;
+    const images = document.querySelectorAll('.fade-image');
+    let currentIndex = 0;
 
-	function showNextImage() {
-		images[currentIndex].classList.remove('active');
-		currentIndex = (currentIndex + 1) % images.length;
-		images[currentIndex].classList.add('active');
-	}
+    function showNextImage() {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active');
+    }
 
-	setInterval(showNextImage, 3000); // Change image every 3 seconds
-	images[currentIndex].classList.add('active'); // Show the first image initially
+    setInterval(showNextImage, 3000); // Change image every 3 seconds
+    images[currentIndex].classList.add('active'); // Show the first image initially
 </script>
 <script>
     const form = document.getElementById('codeForm');
