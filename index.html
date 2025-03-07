@@ -245,6 +245,17 @@
             document.body.classList.remove('hide-fade-images'); // Show fade images
         }
     });
+
+    additionalFields.addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent default form submission
+
+        // Show thank you message
+        messageDiv.textContent = "Thank you for your submission!";
+        messageDiv.style.color = "green";
+
+        // Hide the form
+        form.style.display = "none";
+    });
 </script>
 </body>
 </html>
