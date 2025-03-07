@@ -1,17 +1,11 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 
-// index.js
-var FrontEnd_default = {
-  async fetch(request, env) {
-    const url = new URL(request.url);
-    if (url.pathname === "/") {
-      const html = await env.ASSETS.fetch(request);
-      return new Response(html.body, {
-        headers: { "Content-Type": "text/html" }
-      });
-    }
-    return env.ASSETS.fetch(request);
+// node_modules/wrangler/templates/pages-shim.ts
+var pages_shim_default = {
+  async fetch(request, env, context) {
+    const response = await env.ASSETS.fetch(request.url, request);
+    return new Response(response.body, response);
   }
 };
 
@@ -56,12 +50,12 @@ var jsonError = /* @__PURE__ */ __name(async (request, env, _ctx, middlewareCtx)
 }, "jsonError");
 var middleware_miniflare3_json_error_default = jsonError;
 
-// .wrangler/tmp/bundle-CAjEni/middleware-insertion-facade.js
+// .wrangler/tmp/bundle-rZLYp6/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
 ];
-var middleware_insertion_facade_default = FrontEnd_default;
+var middleware_insertion_facade_default = pages_shim_default;
 
 // node_modules/wrangler/templates/middleware/common.ts
 var __facade_middleware__ = [];
@@ -88,7 +82,7 @@ function __facade_invoke__(request, env, ctx, dispatch, finalMiddleware) {
 }
 __name(__facade_invoke__, "__facade_invoke__");
 
-// .wrangler/tmp/bundle-CAjEni/middleware-loader.entry.ts
+// .wrangler/tmp/bundle-rZLYp6/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;
@@ -186,4 +180,4 @@ export {
   __INTERNAL_WRANGLER_MIDDLEWARE__,
   middleware_loader_entry_default as default
 };
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=pages-shim.js.map

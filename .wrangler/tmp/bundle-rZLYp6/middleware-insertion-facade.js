@@ -1,8 +1,8 @@
-				import worker, * as OTHER_EXPORTS from "C:\\Users\\kelly\\Documents\\mintprojectsdocs\\mint420Frontend\\420FrontEnd\\index.js";
+				import worker, * as OTHER_EXPORTS from "C:\\Users\\kelly\\Documents\\mintprojectsdocs\\mint420Frontend\\420FrontEnd\\node_modules\\wrangler\\templates\\pages-shim.ts";
 				import * as __MIDDLEWARE_0__ from "C:\\Users\\kelly\\Documents\\mintprojectsdocs\\mint420Frontend\\420FrontEnd\\node_modules\\wrangler\\templates\\middleware\\middleware-ensure-req-body-drained.ts";
 import * as __MIDDLEWARE_1__ from "C:\\Users\\kelly\\Documents\\mintprojectsdocs\\mint420Frontend\\420FrontEnd\\node_modules\\wrangler\\templates\\middleware\\middleware-miniflare3-json-error.ts";
 
-				export * from "C:\\Users\\kelly\\Documents\\mintprojectsdocs\\mint420Frontend\\420FrontEnd\\index.js";
+				export * from "C:\\Users\\kelly\\Documents\\mintprojectsdocs\\mint420Frontend\\420FrontEnd\\node_modules\\wrangler\\templates\\pages-shim.ts";
 
 				export const __INTERNAL_WRANGLER_MIDDLEWARE__ = [
 					
