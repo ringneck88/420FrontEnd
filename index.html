@@ -134,10 +134,10 @@
     </picture>
 </div>
 <div style="text-align: center; margin: 20px 0;">
-	<img src="assets/img/enter-code.png" alt="Enter Code" style="width: 50%; max-width: 300px;">
+	<img src="assets/img/enter-code.png" alt="Enter Code" style="width: 600px; max-width: 90%;">
 </div>
 
-<form id="codeForm" style="background-color: rgba(255, 255, 255, 0.8);">
+<form id="codeForm" style="background-color: rgba(255, 255, 255, 0.6);">
 	<label for="ticketPart1">Ticket Number:</label>
 	<div style="display: flex; gap: 5px; align-items: center; justify-content: center;">
 		<input type="text" id="ticketPart1" name="ticketPart1" maxlength="2" required>
@@ -162,8 +162,11 @@
 		<label for="email">Email:</label>
 		<input type="email" id="email" name="email" required>
 	</div>
-<a href="shootoutRules.html" style="display: block; text-align: center; margin-top: 10px; font-size: 20px; color: red;">Read the Shootout Rules</a>
-<button type="submit" style="font-size: 20px;;">I agree to the Shootout and enter!</button>
+<div style="text-align: center; margin-top: 10px;">
+	<input type="checkbox" id="agreeRules" required>
+	<label for="agreeRules" style="font-size: 20px; color: red;"> <a href="shootoutRules.html" target="_blank" style="color: red;">I agree to the Shootout Rules</a></label>
+</div>
+<button type="submit" style="font-size: 20px;">I agree to the Shootout and enter!</button>
 </form>
 
 
