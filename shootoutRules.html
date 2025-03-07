@@ -25,7 +25,7 @@
     </style>
 </head>
 <body>
-	<button class="back-button" onclick="history.back()">Back</button>
+	<button class="back-button" onclick="goBack()">Back</button>
     <h1>Sweepstakes Rules</h1>
     <p>NO PURCHASE NECESSARY TO ENTER OR WIN.</p>
     <p>A PURCHASE DOES NOT INCREASE YOUR CHANCES OF WINNING.</p>
@@ -247,6 +247,11 @@
         <li>By email: marketingmint@themintdispensary.com</li>
         <li>By Mail: Mint Marketing, LLC 5210 S. Priest Dr. Guadalupe, Arizona 85283</li>
     </ul>
-	<button class="back-button" onclick="history.back()">Back</button>
+	<button class="back-button" onclick="goBack()">Back</button>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </body>
 </html>
