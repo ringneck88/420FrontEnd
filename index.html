@@ -135,36 +135,36 @@
 </div>
 <h1>Ticket Verification</h1>
 
-<form id="codeForm">
-    <label for="ticketPart1">Ticket Number:</label>
-    <div style="display: flex; gap: 5px; align-items: center;">
-        <input type="text" id="ticketPart1" name="ticketPart1" maxlength="2" required>
-        <span>-</span>
-        <input type="text" id="ticketPart2" name="ticketPart2" maxlength="2" required>
-        <span>-</span>
-        <input type="text" id="ticketPart3" name="ticketPart3" maxlength="2" required>
-        <span>-</span>
-        <input type="text" id="ticketPart4" name="ticketPart4" maxlength="2" required>
-    </div>
+<form id="codeForm" style="background-color: transparent;"></form>
+	<label for="ticketPart1">Ticket Number:</label>
+	<div style="display: flex; gap: 5px; align-items: center; justify-content: center;">
+		<input type="text" id="ticketPart1" name="ticketPart1" maxlength="2" required>
+		<span style="display: flex; align-items: center;">-</span>
+		<input type="text" id="ticketPart2" name="ticketPart2" maxlength="2" required>
+		<span style="display: flex; align-items: center;">-</span>
+		<input type="text" id="ticketPart3" name="ticketPart3" maxlength="2" required>
+		<span style="display: flex; align-items: center;">-</span>
+		<input type="text" id="ticketPart4" name="ticketPart4" maxlength="2" required>
+	</div>
 
-    <div id="additionalFields" class="">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName">
+	<div id="additionalFields" class="">
+		<label for="firstName">First Name:</label>
+		<input type="text" id="firstName" name="firstName">
 
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" required>
+		<label for="lastName">Last Name:</label>
+		<input type="text" id="lastName" name="lastName" required>
 
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone">
+		<label for="phone">Phone Number:</label>
+		<input type="tel" id="phone" name="phone">
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-    </div>
-
-    <button type="submit">I agree to the Shootout and enter!</button>
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" required>
+	</div>
+<a href="shootoutRules.html" style="display: block; text-align: center; margin-top: 10px;">Read the Shootout Rules</a>
+	<button type="submit">I agree to the Shootout and enter!</button>
 </form>
 
-<a href="shootoutRules.html" style="display: block; text-align: center; margin-top: 10px;">Read the Shootout Rules</a>
+
 
 <div id="message"></div>
 
