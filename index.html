@@ -136,37 +136,38 @@
 <h1>Ticket Verification</h1>
 
 <form id="codeForm">
-    <label for="ticketNumber">Ticket Number:</label>
-    <input type="text" id="ticketNumber" name="ticketNumber" required>
+    <label for="ticketPart1">Ticket Number:</label>
+    <div style="display: flex; gap: 5px; align-items: center;">
+        <input type="text" id="ticketPart1" name="ticketPart1" maxlength="2" required>
+        <span>-</span>
+        <input type="text" id="ticketPart2" name="ticketPart2" maxlength="2" required>
+        <span>-</span>
+        <input type="text" id="ticketPart3" name="ticketPart3" maxlength="2" required>
+        <span>-</span>
+        <input type="text" id="ticketPart4" name="ticketPart4" maxlength="2" required>
+    </div>
 
     <div id="additionalFields" class="">
         <label for="firstName">First Name:</label>
         <input type="text" id="firstName" name="firstName">
 
         <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName">
+        <input type="text" id="lastName" name="lastName" required>
 
         <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required>
+        <input type="tel" id="phone" name="phone">
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
-
     </div>
 
     <button type="submit">I agree to the Shootout and enter!</button>
 </form>
 
-<!-- Add the link to shootoutRules.html here -->
 <a href="shootoutRules.html" style="display: block; text-align: center; margin-top: 10px;">Read the Shootout Rules</a>
 
 <div id="message"></div>
-<!--
-<div id="fadeImages">
-	<img src="assets/img/5000prize-big.png" class="fade-image" alt="Fade Image 1" style="width: 50%; position: absolute;">
-	<img src="assets/img/holeinone-big.png" class="fade-image" alt="Fade Image 2" style="width: 50%;">
-</div>
--->
+
 <style>
     #fadeImages {
         position: fixed;
@@ -186,48 +187,57 @@
     }
 </style>
 
-<!--
-<script>
-	const images = document.querySelectorAll('.fade-image');
-	let currentIndex = 0;
-
-	function showNextImage() {
-		images[currentIndex].classList.remove('active');
-		currentIndex = (currentIndex + 1) % images.length;
-		images[currentIndex].classList.add('active');
-	}
-
-	setInterval(showNextImage, 3000); // Change image every 3 seconds
-   // images[currentIndex].classList.add('active'); // Show the first image initially
-</script>
--->
 <script>
     const form = document.getElementById('codeForm');
     const messageDiv = document.getElementById('message');
     const additionalFields = document.getElementById('additionalFields');
-    const ticketNumberInput = document.getElementById('ticketNumber');
+    const ticketPart1Input = document.getElementById('ticketPart1');
+    const ticketPart2Input = document.getElementById('ticketPart2');
+    const ticketPart3Input = document.getElementById('ticketPart3');
+    const ticketPart4Input = document.getElementById('ticketPart4');
+    const lastNameInput = document.getElementById('lastName');
     const phoneInput = document.getElementById('phone');
     const emailInput = document.getElementById('email');
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault(); // Prevent default form submission
 
-        const ticketNumber = ticketNumberInput.value.trim();
+        const ticketPart1 = ticketPart1Input.value.trim();
+        const ticketPart2 = ticketPart2Input.value.trim();
+        const ticketPart3 = ticketPart3Input.value.trim();
+        const ticketPart4 = ticketPart4Input.value.trim();
+        const ticketNumber = `${ticketPart1}-${ticketPart2}-${ticketPart3}-${ticketPart4}`;
+        const lastName = lastNameInput.value.trim();
         const phone = phoneInput.value.trim();
         const email = emailInput.value.trim();
 
-        // Validate phone number
+        // Validate ticket number format
+		const ticketNumberPattern = /^[A-Z0-9]{2}-[A-Z0-9]{2}-[A-Z0-9]{2}-[A-Z0-9]{2}$/i;
+		if (!ticketNumberPattern.test(ticketNumber)) {
+			messageDiv.textContent = "Please enter a valid ticket number in the format 'A9-BV-60-OF'.";
+			messageDiv.style.color = "red";
+			return;
+		}
+
+        // Validate phone number if provided
         const phonePattern = /^[0-9]{10}$/;
-        if (!phonePattern.test(phone)) {
+        if (phone && !phonePattern.test(phone)) {
             messageDiv.textContent = "Please enter a valid 10-digit phone number.";
             messageDiv.style.color = "red";
             return;
         }
 
-        // Validate email
+        // Validate email if provided
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
+        if (email && !emailPattern.test(email)) {
             messageDiv.textContent = "Please enter a valid email address.";
+            messageDiv.style.color = "red";
+            return;
+        }
+
+        // Ensure either phone or email is provided
+        if (!phone && !email) {
+            messageDiv.textContent = "Please enter either a phone number or an email address.";
             messageDiv.style.color = "red";
             return;
         }
@@ -243,7 +253,7 @@
         }
 
         // Show thank you message and hide the form
-        messageDiv.textContent = "Thank you for your submission!";
+        messageDiv.textContent = "Thank you for your submission! and good luck! Happy 420!";
         messageDiv.style.color = "green";
         messageDiv.style.fontSize = "32px"; // Large font size for thank you message
         form.style.display = "none";
