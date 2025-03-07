@@ -94,6 +94,23 @@
                 padding: 11px 18px;
             }
         }
+
+        /* Background images for different orientations */
+        @media screen and (orientation: portrait) {
+            body {
+                background-image: url('assets/img/MintAz_MDG_Background_1920x1080.jpg');
+                background-size: cover;
+                background-position: center;
+            }
+        }
+
+        @media screen and (orientation: landscape) {
+            body {
+                background-image: url('assets/img/MintAz_MDG_Background_360x640.jpg');
+                background-size: cover;
+                background-position: center;
+            }
+        }
     </style>
 </head>
 <body>
