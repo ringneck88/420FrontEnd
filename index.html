@@ -302,9 +302,11 @@
             body:formData
         });
 
+		console.log('Response:', response);
+
         // Check the response
         if (response.ok) {
-            const responseData = await response.json();
+            //const responseData = await response.json();
             // Handle success
             messageDiv.textContent = "Thank you for your submission! and good luck! Happy 420!";
             messageDiv.style.color = "green";
