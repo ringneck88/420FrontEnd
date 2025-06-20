@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Golf Ball Hits Money</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #111;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .scene {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Golf ball arcs up and off screen */
+    .golfball {
+      position: absolute;
+      width: 8vw;
+      max-width: 60px;
+      bottom: 5vh;
+      left: 0;
+      z-index: 10;
+      animation: golfArc 3s ease-in-out forwards;
+    }
+
+    @keyframes golfArc {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: translate(45vw, -60vh) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(100vw, -10vh) scale(0.3);
+        opacity: 0;
+      }
+    }
+
+    /* Money explosion at apex */
+    .explosion {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      width: 0;
+      height: 0;
+    }
+
+    .money {
+      position: absolute;
+      width: 10vw;
+      max-width: 80px;
+      opacity: 0;
+      animation: moneyFall 4s forwards ease-out;
+    }
+
+    /* Each bill has its own direction and delay */
+    .money:nth-child(1) { animation-delay: 1.5s; --x: -0.5; --y: 1; --r: 1; }
+    .money:nth-child(2) { animation-delay: 1.6s; --x: 0.7; --y: 1.1; --r: -1; }
+    .money:nth-child(3) { animation-delay: 1.7s; --x: -1; --y: 1.2; --r: 1; }
+    .money:nth-child(4) { animation-delay: 1.8s; --x: 1.2; --y: 1; --r: -1; }
+    .money:nth-child(5) { animation-delay: 1.9s; --x: 0.3; --y: 1.3; --r: 1; }
+
+    @keyframes moneyFall {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1) rotate(0deg);
+      }
+      100% {
+        transform:
+          translate(calc(50vw * var(--x)), calc(80vh * var(--y)))
+          scale(2)
+          rotate(calc(360deg * var(--r)));
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scene">
+    <!-- Golf Ball -->
+    <img
+      class="golfball"
+      src="—Pngtree—the isolated golf ball flat_4844551.png" alt="Golf Ball"
+    >
+
+    <!-- Money Explosion -->
+    <div class="explosion">
+      <img class="money" src="https://e7.pngegg.com/pngimages/136/973/png-clipart-united-states-dollar-banknote-paper-united-states-one-hundred-dollar-bill-banknote-stack-desktop-wallpaper-thumbnail.png">
+      <img class="money" src="https://e7.pngegg.com/pngimages/136/973/png-clipart-united-states-dollar-banknote-paper-united-states-one-hundred-dollar-bill-banknote-stack-desktop-wallpaper-thumbnail.png">
+      <img class="money" src="https://e7.pngegg.com/pngimages/136/973/png-clipart-united-states-dollar-banknote-paper-united-states-one-hundred-dollar-bill-banknote-stack-desktop-wallpaper-thumbnail.png">
+      <img class="money" src="https://e7.pngegg.com/pngimages/136/973/png-clipart-united-states-dollar-banknote-paper-united-states-one-hundred-dollar-bill-banknote-stack-desktop-wallpaper-thumbnail.png">
+      <img class="money" src="https://e7.pngegg.com/pngimages/136/973/png-clipart-united-states-dollar-banknote-paper-united-states-one-hundred-dollar-bill-banknote-stack-desktop-wallpaper-thumbnail.png">
+    </div>
+  </div>
+
+</body>
+</html>
+
