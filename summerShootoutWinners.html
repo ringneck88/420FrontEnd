@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mint Shootout Countdown</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('golf-background.jpg'); /* Replace with the actual URL of your golf-themed background */
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .logo {
+            position: fixed; /* Keeps the logo fixed at the top */
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%); /* Centers the logo horizontally */
+            width: 40%;
+            max-width: 150px;
+            z-index: 1000; /* Ensures the logo stays on top of other elements */
+        }
+        .container {
+            margin-top: 100px; /* Adds space below the fixed logo */
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque white background */
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        }
+        h1 {
+            font-size: 1.8em;
+            color: #2c5f2d;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        #countdown {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .time {
+            font-size: 1.5em;
+            font-weight: bold;
+            background-color: #fff;
+            border: 2px solid #2c5f2d;
+            border-radius: 10px;
+            padding: 10px;
+            width: 60px;
+            text-align: center;
+        }
+        .label {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 5px;
+        }
+        .time-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .golf-theme {
+            font-size: 1em;
+            color: #2c5f2d;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            h2 {
+                font-size: 1em;
+            }
+            .time {
+                font-size: 1.2em;
+                width: 50px;
+            }
+            .label {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="mint-logo.png" alt="Mint Logo" class="logo"> <!-- Replace 'mint-logo.png' with the actual path to your logo -->
+    <div class="container">
+        <h1>Mint Shootout Countdown</h1>
+        <h2>Winner will be posted Here!!</h2>
+        <div id="countdown">
+            <div class="time-container">
+                <div class="time" id="days">00</div>
+                <div class="label">Days</div>
+            </div>
+            <div class="time-container">
+                <div class="time" id="hours">00</div>
+                <div class="label">Hours</div>
+            </div>
+            <div class="time-container">
+                <div class="time" id="minutes">00</div>
+                <div class="label">Minutes</div>
+            </div>
+            <div class="time-container">
+                <div class="time" id="seconds">00</div>
+                <div class="label">Seconds</div>
+            </div>
+        </div>
+        <p class="golf-theme">Get ready for the Mint Shootout!</p>
+    </div>
+    <script>
+        function updateCountdown() {
+            const eventDate = new Date('September 30, 2025 00:00:00').getTime(); // Fixed invalid date
+            const now = new Date().getTime();
+            const timeLeft = eventDate - now;
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+            if (timeLeft < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('countdown').innerHTML = '<p>The Mint Shootout has begun!</p>';
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
